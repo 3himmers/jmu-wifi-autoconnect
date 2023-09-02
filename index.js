@@ -5,11 +5,10 @@ const RSAUtils = require('./utils/security');
 const config = require('./config.json')
 
 const today = new Date();
-const logPath = 'log/' +formatData(today) + '.txt';
-const file = fs.createWriteStream(logPath);
-const logger = new console.Console(file, file);
 
 async function main() {
+
+    console.log(formatData(today))
 
     let userId = config.username
     let password = config.password
@@ -42,7 +41,7 @@ async function main() {
                 "&service=" + service + "&queryString=" + queryString +
                 "&operatorPwd=&operatorUserId=&validcode=&passwordEncrypt=true"
             axios.post(loginUrl, loginData).then(res => {
-                logger.log(res.data)
+                console.log(res.data)
             })
         })
     })
