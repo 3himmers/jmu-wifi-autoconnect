@@ -4,7 +4,7 @@
 
 2.然后请在config.json中更改配置。
 
-username,password即为你的账号和密码。
+userId,password即为你的账号和密码。
 
 service即为运营商，填入教育网接入，电信宽带接入，联通宽带接入或者移动宽带接入。
 
