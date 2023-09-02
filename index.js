@@ -1,12 +1,11 @@
-const RSAUtils = require('./utils/security');
 const fs = require('fs');
-const sd = require('silly-datetime');
 const axios = require('axios');
 
+const RSAUtils = require('./utils/security');
 const config = require('./config.json')
 
-const time = sd.format(new Date(), 'YYYY-MM-DD-HH-mm-ss');
-const logPath = 'log/' + time + '.txt';
+const today = new Date();
+const logPath = 'log/' +formatData(today) + '.txt';
 const file = fs.createWriteStream(logPath);
 const logger = new console.Console(file, file);
 
@@ -47,6 +46,17 @@ async function main() {
             })
         })
     })
+}
+
+function formatData(timestamp) {
+    const date = new Date(timestamp);
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    const hour = date.getHours().toString().padStart(2, '0');
+    const minute = date.getMinutes().toString().padStart(2, '0');
+    const second = date.getSeconds().toString().padStart(2, '0');
+    return `${year}-${month}-${day}T${hour}-${minute}-${second}`
 }
 
 main()
