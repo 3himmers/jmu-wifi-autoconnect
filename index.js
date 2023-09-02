@@ -3,11 +3,9 @@ const axios = require('axios');
 const RSAUtils = require('./utils/security');
 const config = require('./config.json')
 
-const today = new Date();
-
 async function main() {
 
-    console.log(formatData(today))
+    console.log(formatData(new Date()))
 
     let userId = config.username
     let password = config.password
