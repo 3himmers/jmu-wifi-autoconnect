@@ -22,6 +22,9 @@
 
 4.写个自动化任务，每天6:01自动执行该脚本。 可以看看我在openwrt下写的：
 
+`*/10 6-23 * * * /root/jmu-wifi-autoconnect/./index 202021122026 342901200112017 1 >> /root/jmu-wifi-autoconnect/log.txt
+`
+
 我在releases下发布了我自己打包的在openwrt arm64下运行的可执行文件。
 
 x86一般你都可以编译，arm可以去租用华为云或者阿里云的arm云服务器，可按小时计费，很便宜。
