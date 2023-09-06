@@ -9,19 +9,21 @@ async function main() {
     console.log(formattedDate)
     //read args
     const args = process.argv.slice(2)
-    console.log(args)
     let userId = args[0]
     let password = args[1]
     let service = null
-    if (args[2] === 1) {
+    if (args[2] == 1) {
         service = "电信宽带接入"
-    } else if (args[2] === 2) {
+    } else if (args[2] == 2) {
         service = "联通宽带接入"
-    } else if (args[2] === 3) {
+    } else if (args[2] == 3) {
         service = "移动宽带接入"
-    } else if (args[2] === 4) {
+    } else if (args[2] == 4) {
         service = "教育网接入"
     }
+    console.log({
+        userId: userId, password: password, service: service
+    })
     service = encodeURIComponent(encodeURIComponent(service))
     //get pageInfo
     axios.get('http://10.8.2.2').then(res => {
